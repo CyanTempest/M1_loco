@@ -1,0 +1,27 @@
+{
+  "source": "User-authorized B2W wheel gain reference: robot_lab v2.3.2, commit 09f6a9dfdf48f32f38bb851dfa3a7d44db32b270, assets/unitree.py",
+  "source_url": "https://github.com/fan-ziqi/robot_lab/blob/09f6a9dfdf48f32f38bb851dfa3a7d44db32b270/source/robot_lab/robot_lab/assets/unitree.py",
+  "control_mode": "Pure wheel velocity feedback: tau = kd * (target_velocity - measured_velocity), kp = 0",
+  "units": {
+    "kp": "N*m/rad",
+    "kd": "N*m*s/rad"
+  },
+  "motors": {
+    "FAR_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 1.0
+    },
+    "FBL_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 1.0
+    },
+    "RAR_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 1.0
+    },
+    "RBL_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 1.0
+    }
+  }
+}

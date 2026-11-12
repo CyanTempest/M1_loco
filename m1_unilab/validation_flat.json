@@ -1,0 +1,17 @@
+{
+  "terrain": "flat",
+  "num_envs": 8,
+  "steps": 250,
+  "policy_dim": 53,
+  "critic_dim": 243,
+  "action_dim": 16,
+  "wheel_kp": 0,
+  "wheel_kd": 1,
+  "mass_kg": 42.337999999999994,
+  "integrator": "implicitfast",
+  "sim_dt": 0.002,
+  "ctrl_dt": 0.02,
+  "zero_action_terminations": 0,
+  "reward_mean": 0.029738316237926485,
+  "elapsed_seconds": 0.27096641599200666
+}

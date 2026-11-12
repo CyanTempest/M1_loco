@@ -1,0 +1,11 @@
+{
+  "unit_tests_passed": 48,
+  "compiled_nativeccd_disabled": true,
+  "native_envs": 512,
+  "native_policy_steps": 100,
+  "resume_checkpoint": 1000,
+  "resume_updates_tested": 12,
+  "resume_exit_code": 0,
+  "exact_crash_state_reproduced": false,
+  "scope": "bypass of confirmed native CCD crash path; no claim of upstream memory corruption root cause"
+}

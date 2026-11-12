@@ -1,0 +1,50 @@
+terrain:
+  _target_: unisim.scene.TerrainSceneCfg
+  generator:
+    _target_: unilab.terrains.TerrainGeneratorCfg
+    seed: 17
+    size: [8.0, 8.0]
+    curriculum: true
+    num_rows: 5
+    horizontal_scale: 0.05
+    vertical_scale: 0.005
+    border_width: 2.0
+    difficulty_range: [0.0, 1.0]
+    sub_terrains:
+      flat:
+        _target_: unilab.terrains.HfFlatTerrainCfg
+        proportion: 0.2
+      uphill:
+        _target_: unilab.terrains.HfPyramidSlopedTerrainCfg
+        proportion: 0.1
+        slope_range: [0.0, 0.35]
+        platform_width: 2.0
+        inverted: true
+      downhill:
+        _target_: unilab.terrains.HfPyramidSlopedTerrainCfg
+        proportion: 0.1
+        slope_range: [0.0, 0.35]
+        platform_width: 2.0
+        inverted: false
+      rough:
+        _target_: unilab.terrains.HfRandomUniformTerrainCfg
+        proportion: 0.2
+        noise_range: [-0.04, 0.04]
+        noise_step: 0.005
+        downsampled_scale: 0.1
+      stairs_up:
+        _target_: unilab.terrains.HfInvertedPyramidStairsTerrainCfg
+        proportion: 0.2
+        step_height_range: [0.03, 0.16]
+        step_width: 0.3
+        platform_width: 2.0
+      stairs_down:
+        _target_: unilab.terrains.HfPyramidStairsTerrainCfg
+        proportion: 0.2
+        step_height_range: [0.03, 0.16]
+        step_width: 0.3
+        platform_width: 2.0
+curriculum:
+  terrain:
+    func: m1_unilab.mdp.TerrainLevelsDistance
+

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M1 速度控制</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101820;color:#edf3f6;font:16px Inter,-apple-system,BlinkMacSystemFont,sans-serif}main{max-width:1240px;margin:auto;padding:28px}h1{font-size:26px;margin:0 0 8px}header p{color:#a8bbc8;margin:0 0 24px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px}.view,.panel{background:#1a2732;border:1px solid #344653;border-radius:14px;overflow:hidden}img{width:100%;aspect-ratio:8/5;object-fit:contain;background:#17222c}.readout{display:flex;gap:20px;padding:18px;flex-wrap:wrap}.readout span{color:#a8bbc8;display:block;font-size:13px}.readout strong{display:block;margin-top:7px;font-variant-numeric:tabular-nums}.panel{padding:22px}label{display:block;margin-bottom:24px}label b{float:right;font-variant-numeric:tabular-nums}input[type=range]{display:block;width:100%;margin:18px 0 6px;accent-color:#62d6bd}small{font-size:12px;color:#a8bbc8}.ends{display:flex;justify-content:space-between}button,select{font:inherit;border:1px solid #536775;color:#edf3f6;background:#263b4a;padding:10px 13px;border-radius:8px;cursor:pointer}button:hover{background:#375265}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #62d6bd;outline-offset:3px}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}#zero{background:#1d6859}select{width:100%;margin-top:9px}#status{font-size:14px;color:#8cdec8;margin:15px 0 0;min-height:38px}footer{font-size:13px;color:#a8bbc8;margin-top:16px;line-height:1.6}@media(max-width:850px){.layout{grid-template-columns:1fr}main{padding:16px}}
+</style>
+<main>
+<header><h1>M1 速度控制</h1><p id="policy-label">正在读取策略 · 机器人坐标系指令</p></header>
+<div class="layout">
+<section class="view"><img id="view" alt="M1 实时仿真画面"><div class="readout">
+<div><span>实际前后速度</span><strong id="actual-x">—</strong></div><div><span>实际左右速度</span><strong id="actual-y">—</strong></div><div><span>实际转向角速度</span><strong id="actual-yaw">—</strong></div><div><span>仿真时间</span><strong id="sim-time">—</strong></div>
+</div></section>
+<section class="panel" aria-label="控制面板">
+<label for="vx">前后速度 <b id="vx-value">0.00 m/s</b><input id="vx" type="range" min="-1" max="1" step="0.05" value="0"><small class="ends"><span>后退 −1</span><span>前进 +1</span></small></label>
+<label for="vy">左右速度 <b id="vy-value">0.00 m/s</b><input id="vy" type="range" min="-1" max="1" step="0.05" value="0"><small class="ends"><span>向右 −1</span><span>向左 +1</span></small></label>
+<label for="yaw">转向角速度 <b id="yaw-value">0.00 rad/s</b><input id="yaw" type="range" min="-1" max="1" step="0.05" value="0"><small class="ends"><span>右转 −1</span><span>左转 +1</span></small></label>
+<div class="buttons"><button id="zero">指令归零</button><button id="pause">继续预览</button><button id="reset">复位</button></div>
+<label for="terrain">地形<select id="terrain"><option value="flat">平地</option><option value="uphill">上坡</option><option value="downhill">下坡</option><option value="rough">粗糙地面</option><option value="stairs_up">上楼梯</option><option value="stairs_down">下楼梯</option></select></label>
+<label for="level">地形难度<select id="level"><option value="0">等级 0 · 低</option><option value="1">等级 1</option><option value="2" selected>等级 2 · 中</option><option value="3">等级 3</option><option value="4">等级 4 · 高</option></select></label>
+<p id="status" role="status">正在连接…</p>
+</section></div>
+<footer>键盘：W/S 前进/后退，A/D 左转/右转，Q/E 左/右平移（也可用方向键），按住 Shift 加速到 1 m/s，松开即停，空格归零。拖动滑块后指令持续生效。空格将三个指令归零，实际速度由策略响应决定。复位会回到出生位置，摔倒或越界会自动复位。平地和粗糙地面的定义不随难度等级变化。</footer>
+</main>
+<script>
+const axes=['vx','vy','yaw'];let paused=true,reset=0,pending=null,sending=false;
+function values(){return Object.fromEntries(axes.map(k=>[k,Number(document.getElementById(k).value)]))}
+function labels(){for(const k of axes)document.getElementById(k+'-value').textContent=Number(document.getElementById(k).value).toFixed(2)+(k==='yaw'?' rad/s':' m/s')}
+async function send(update){pending={...pending,...update};if(sending)return;sending=true;try{while(pending){const data=pending;pending=null;const response=await fetch('/control',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!response.ok)throw Error('控制请求失败')}}catch(e){document.getElementById('status').textContent=e.message}finally{sending=false}}
+for(const k of axes)document.getElementById(k).addEventListener('input',()=>{labels();send(values())});
+function zero(){for(const k of axes)document.getElementById(k).value=0;labels();send(values())}
+document.getElementById('zero').onclick=zero;
+document.getElementById('pause').onclick=()=>{paused=!paused;document.getElementById('pause').textContent=paused?'继续预览':'暂停预览';send({paused})};
+document.getElementById('reset').onclick=()=>{zero();send({reset:++reset})};
+for(const k of ['terrain','level'])document.getElementById(k).onchange=()=>{zero();send({terrain:document.getElementById('terrain').value,level:Number(document.getElementById('level').value)});document.getElementById('status').textContent='正在切换地形…'};
+const held=new Set(),keymap={KeyW:['vx',1],ArrowUp:['vx',1],KeyS:['vx',-1],ArrowDown:['vx',-1],KeyA:['yaw',1],ArrowLeft:['yaw',1],KeyD:['yaw',-1],ArrowRight:['yaw',-1],KeyQ:['vy',1],KeyE:['vy',-1]};
+function applyKeys(shift){const t={vx:0,vy:0,yaw:0};for(const c of held){const [k,d]=keymap[c];t[k]+=d}for(const k of axes){const v=Math.max(-1,Math.min(1,t[k]*(k==='yaw'?0.8:(shift?1.0:0.5))));document.getElementById(k).value=v}labels();send(values())}
+document.addEventListener('keydown',e=>{if(['SELECT','INPUT'].includes(document.activeElement.tagName)&&e.code in keymap)document.activeElement.blur();if(e.code in keymap){e.preventDefault();if(paused){paused=false;document.getElementById('pause').textContent='暂停预览';send({paused})}if(!held.has(e.code)||e.repeat===false){held.add(e.code);applyKeys(e.shiftKey)}return}if(e.code==='Space'&&!['SELECT','BUTTON'].includes(document.activeElement.tagName)){e.preventDefault();held.clear();zero()}});
+document.addEventListener('keyup',e=>{if(e.code in keymap){held.delete(e.code);applyKeys(e.shiftKey)}});
+window.addEventListener('blur',()=>{held.clear();zero()});
+async function poll(){try{const response=await fetch('/state');const s=await response.json();document.getElementById('status').textContent=s.status;document.getElementById('policy-label').textContent='第 '+s.checkpoint+' 号策略 · 机器人坐标系指令';for(const [i,k] of ['x','y','yaw'].entries())document.getElementById('actual-'+k).textContent=s.measured[i].toFixed(2)+(k==='yaw'?' rad/s':' m/s');document.getElementById('sim-time').textContent=s.simulation_seconds.toFixed(1)+' s';reset=Math.max(reset,s.reset)}catch(e){document.getElementById('status').textContent='连接已断开，请检查预览进程'}setTimeout(poll,300)}
+async function frame(){try{const response=await fetch('/frame?t='+Date.now());if(response.ok){const blob=await response.blob();const url=URL.createObjectURL(blob);const old=document.getElementById('view').src;document.getElementById('view').src=url;if(old.startsWith('blob:'))URL.revokeObjectURL(old)}}catch(e){}setTimeout(frame,100)}
+poll();frame();
+</script>
+</html>

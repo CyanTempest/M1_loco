@@ -1,0 +1,67 @@
+{
+  "time": "2026-11-11 00:44:33.3138 +0800",
+  "pid": 64722,
+  "signal": "SIGSEGV",
+  "exception_type": "EXC_BAD_ACCESS",
+  "termination": "Segmentation fault: 11",
+  "faulting_frames": [
+    {
+      "symbol": "projectOriginPlane",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mjc_ccd",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mjc_penetration",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mjc_ConvexHField",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "collisionTask",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mju_dispatch",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mj_narrowphase",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mj_collision",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mj_fwdPosition",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mj_forwardSkip",
+      "image": "libmujoco.3.11.0.dylib"
+    },
+    {
+      "symbol": "mj_step",
+      "image": "libmujoco.3.11.0.dylib"
+    }
+  ],
+  "last_logged_iteration": 1046,
+  "latest_checkpoint": "runs/M1MixedFull/2026-11-10_23-26-54_mujoco/model_1000.pt",
+  "checkpoint_sha256": "af656ea08e5de5757d4795432a81a804632ac58c9c028e5e1150b11a67270fe8",
+  "checkpoint_env_steps": 12312576,
+  "checkpoint_completed_updates": 1002,
+  "updates_not_saved_after_checkpoint": 46,
+  "remaining_updates_to_30000": 28998,
+  "run_summary_present": false,
+  "observed_tensorboard_scalars_all_finite": true,
+  "upstream_related_issue": "https://github.com/google-deepmind/mujoco/issues/3646",
+  "underlying_memory_corruption_root_cause_confirmed": false,
+  "collision_state_captured": false,
+  "training_restarted": false,
+  "production_configuration_changed": false
+}

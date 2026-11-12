@@ -1,0 +1,11 @@
+<mujoco model="M1_mixed">
+  <compiler meshdir="../../m1_locomotion/assets/m1/meshes" angle="radian" />
+  <option timestep="0.001" integrator="implicit" gravity="0 0 -9.81" />
+  <include file="robot_full.xml" />
+  <worldbody>
+    <light pos="0 0 6" directional="true" dir="0 0 -1" />
+  </worldbody>
+  <keyframe>
+    <key name="home" qpos="0.0 0.0 0.54 1.0 0.0 0.0 0.0 0.0 0.65 -1.3 0.0 0.0 0.65 -1.3 0.0 0.0 -0.65 1.3 0.0 0.0 -0.65 1.3 0.0" ctrl="0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0" />
+  </keyframe>
+</mujoco>

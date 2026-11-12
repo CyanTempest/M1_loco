@@ -1,0 +1,142 @@
+{
+  "source_archive": "/Users/amiao/Downloads/青岚-11/图片和附件/ZG_M1_A0_V1_0.rar",
+  "archive_urdf": "ZG_M1_A0_V1_0/urdf/ZG_M1_A0_V1_0.urdf",
+  "urdf_robot_name": "ZG_M1_W",
+  "urdf_sha256": "f961f953314854f2bfcd21a05d0a8d869549fb468b0694982e68a6b02b07b311",
+  "fresh_archive_urdf_byte_identical_to_saved_original": true,
+  "all_cad_mesh_files_byte_identical": true,
+  "all_link_inertials_unchanged": true,
+  "all_visual_elements_unchanged_except_relative_mesh_path": true,
+  "joint_tree_origins_axes_and_nonwheel_limits_unchanged": true,
+  "link_count": 33,
+  "actuated_joint_count": 16,
+  "visual_mesh_count": 17,
+  "mesh_file_count": 29,
+  "mass_kg": 42.338,
+  "documented_preparation_changes": [
+    "wheel joints made continuous; effort and speed limits retained",
+    "12 BASE_LINK sensor mesh collisions removed; 11 original primitive collisions retained",
+    "robot name and relative mesh paths normalized",
+    "MuJoCo conversion adds floating root, motors and sensors; fixed rotor links fuse into their parent"
+  ],
+  "previous_video_appearance": "collision primitives with custom blue/gray coloring; original visual meshes omitted",
+  "corrected_video_appearance": "all 17 original visual meshes with source URDF colors; every triangle retained; detached from training physics",
+  "meshes": [
+    {
+      "name": "BASE_LINK.STL",
+      "sha256": "a7ceac5e9f4cc5b0898987e561d5e9c7e30196b5cc0e7fe6e2d26ca17bed7a67"
+    },
+    {
+      "name": "FAR_ABAD_LINK.STL",
+      "sha256": "4070ad0055318d678c986adf3128065e0ba8e8062ac92512162605cc46c86dde"
+    },
+    {
+      "name": "FAR_FOOT_LINK.STL",
+      "sha256": "243fb67e514f88a832cc79d3c66d003cd6f6f7a91ca8702e164bd9baa1e5819d"
+    },
+    {
+      "name": "FAR_HIP_LINK.STL",
+      "sha256": "3a62da454115da40c627874f22557b12c07d7fe0b703248bae2be13273aecf81"
+    },
+    {
+      "name": "FAR_KNEE_LINK.STL",
+      "sha256": "47708f09c0ee217c8082bf732ce6a88e9f816dcb4aa787f92e1e832415959a60"
+    },
+    {
+      "name": "FAR_LIHGT_LINK.STL",
+      "sha256": "ebe5fa6dc310ee3042b1c318b35d15f0d293e7fbf092d710a0bf81ef418a1ecf"
+    },
+    {
+      "name": "FAR_RADARA22_LINK.STL",
+      "sha256": "570f5b43cc5422e42facd639333cf46262c7c4def7bfb9e54be2651ec3a369d0"
+    },
+    {
+      "name": "FBL_ABAD_LINK.STL",
+      "sha256": "fc680650f3d3190ba0631428b221921dab9570411a5fa67bc39cedefae661bda"
+    },
+    {
+      "name": "FBL_FOOT_LINK.STL",
+      "sha256": "a594bf630cb57e228140eb3a20fd712f7c65791fdbdee84855453efb0b5cce1d"
+    },
+    {
+      "name": "FBL_HIP_LINK.STL",
+      "sha256": "c71f433239987927f4f9bc554a9b8841fb9af014023a3d646ac743a790677019"
+    },
+    {
+      "name": "FBL_KNEE_LINK.STL",
+      "sha256": "4fc15f27981b2c12a88af3d77cc70f878049009114164131341dd245c24ff8ea"
+    },
+    {
+      "name": "FBL_LIHGT_LINK.STL",
+      "sha256": "659bb67f54974e5db1dc06c671e591ab667f7a35a305e54310d3733615920c78"
+    },
+    {
+      "name": "FBL_RADARA22_LINK.STL",
+      "sha256": "853df3ddd6187f5a724e029a6fa7b5f734159742508cc1205b500aaec891babc"
+    },
+    {
+      "name": "F_AIRY_LINK.STL",
+      "sha256": "6ad0bb44817fc18a3a04e5c73c2d83eb7c42a3f0a7b4a3ac4abb0a63bb34e4e7"
+    },
+    {
+      "name": "F_IMX415_LINK.STL",
+      "sha256": "91b70883ec1d470a2f8757afa524bab1fb8651333e740debae6312168e3ad94a"
+    },
+    {
+      "name": "IMU_ICM42688_LINK.STL",
+      "sha256": "33997657c66f01a51e08ce8bb8d8f4abcceaf9435c918822905f5ad8abf3116b"
+    },
+    {
+      "name": "IMU_LUA300C_LINK.STL",
+      "sha256": "0e41e7e40ea340928fd0f7cbf8b3bb082c91ae820a1ed904284f1aa46905ef97"
+    },
+    {
+      "name": "RAR_ABAD_LINK.STL",
+      "sha256": "cef591feb0b1468f1e75152f8b55bca5352e6a8270a27b49517019a20d121d47"
+    },
+    {
+      "name": "RAR_FOOT_LINK.STL",
+      "sha256": "243fb67e514f88a832cc79d3c66d003cd6f6f7a91ca8702e164bd9baa1e5819d"
+    },
+    {
+      "name": "RAR_HIP_LINK.STL",
+      "sha256": "5246ad50e70f560b21749e573ce24a0e5535899e6bf6be0444168c7b3712d8e3"
+    },
+    {
+      "name": "RAR_KNEE_LINK.STL",
+      "sha256": "27a70b31613160edcc5f1b94a70c9084b03cffd0115a46d5e7f54d9232827b46"
+    },
+    {
+      "name": "RAR_LIHGT_LINK.STL",
+      "sha256": "de0e54cb8107d5512be44cc2e76231bf828a592136055f7b33c4860a00e19215"
+    },
+    {
+      "name": "RBL_ABAD_LINK.STL",
+      "sha256": "c745d9c025ff80054112f5f589c339855af0ac2184974a32f28f67afbf8f93d4"
+    },
+    {
+      "name": "RBL_FOOT_LINK.STL",
+      "sha256": "24d5bb07345ba0b6401c95328c764940a2ad767f7d11e40dfb7a4f8afaffe273"
+    },
+    {
+      "name": "RBL_HIP_LINK.STL",
+      "sha256": "1b30ab1e9c92338fd15b856bd5d69382549e0b5ae69bab95b3c8ed0f68bb9aff"
+    },
+    {
+      "name": "RBL_KNEE_LINK.STL",
+      "sha256": "8572dc3ebbfda5a925be6babfe158e7a5e2aa56412288d1c30342ac8c70f0447"
+    },
+    {
+      "name": "RBL_LIHGT_LINK.STL",
+      "sha256": "0d3f0d415b25368af74297e0cd1f365ac1a716e0a6f65101d336f3ad9484ab00"
+    },
+    {
+      "name": "R_AIRY_LINK.STL",
+      "sha256": "82fa739fe4e4bbd8803fd4e61d5ce80985c345ceef75ff1ae226e8a70a9d9de1"
+    },
+    {
+      "name": "R_IMX415_LINK.STL",
+      "sha256": "30a3095efed21ab2ba90bb38d63f251ef6c636a65ad6e6db0f165b60db017838"
+    }
+  ]
+}

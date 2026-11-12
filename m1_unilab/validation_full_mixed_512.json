@@ -1,0 +1,77 @@
+{
+  "profile": "b2w-full",
+  "backend": "native MuJoCo/mjbatch",
+  "terrain": "mixed",
+  "num_envs": 512,
+  "policy_steps": 100,
+  "physical_steps_per_environment": 2000,
+  "policy_dim": 57,
+  "critic_dim": 247,
+  "action_dim": 16,
+  "reward_terms": 17,
+  "startup_dr": {
+    "readback_api": "SimBackend.get_reset_term_default (live committed mjbatch fields)",
+    "robot_bodies": 17,
+    "robot_geoms": 55,
+    "material_buckets": 64,
+    "sliding_friction_min_max": [
+      0.30198270082473755,
+      0.9865120053291321
+    ],
+    "base_mass_offset_min_max_kg": [
+      -0.9882708251953112,
+      2.9954881011962904
+    ],
+    "other_body_mass_scale_min_max": [
+      0.7000967783640294,
+      1.2998450179663679
+    ],
+    "base_com_offset_max_abs_m": 0.04999400200548172,
+    "mass_inertia_ratio_verified": true,
+    "material_mapping": "MuJoCo single sliding friction U[0.3,1.0] replaces the unavailable independent PhysX static/dynamic pair; torsional=0.005, rolling=0.0001. Requested restitution e is mapped approximately to solref=[0.02/zeta,zeta], zeta=-ln(e)/sqrt(pi^2+ln(e)^2), with e=0 mapped to zeta=1. Keeping timeconst*zeta=0.02 prevents restitution DR from increasing contact stiffness. Actual restitution depends on timestep, solver, impedance and geometry."
+  },
+  "collision_free_reset_verified": true,
+  "native_contacts_after_reset": 0,
+  "maximum_reset_lift_m": 0.20680069238100196,
+  "reset_clearance_m": 0.005,
+  "startup_unchanged_after_selected_and_full_reset": true,
+  "drive_resampled_on_reset_selected_rows_only": true,
+  "wheel_kp": 0,
+  "drive_delay_steps_min_max": [
+    0,
+    20
+  ],
+  "wrench_submissions_at_public_backend_boundary": 2000,
+  "wrench_verification_scope": "world-frame force+torque submitted before every native physical step; no private solver-buffer access",
+  "native_ctrl_matches_explicit_pd": true,
+  "contact_history_physical_steps": 3,
+  "sim_dt": 0.001,
+  "ctrl_dt": 0.02,
+  "integrator": "implicit",
+  "convex_collision_algorithm": "libccd",
+  "terminations": 0,
+  "truncations": 0,
+  "reward_mean": 0.06290831863880157,
+  "raw_reward_abs_max": {
+    "lin_vel_z_l2": 3.598055601119995,
+    "ang_vel_xy_l2": 29.958696365356445,
+    "joint_torques_l2": 44469.9375,
+    "joint_acc_l2": 6202816.0,
+    "joint_acc_wheel_l2": 24549148.0,
+    "joint_pos_limits": 0.19435572624206543,
+    "joint_power": 3024.247314453125,
+    "stand_still": 3.1652657985687256,
+    "joint_pos_penalty": 6.987900733947754,
+    "joint_mirror": 0.9187850952148438,
+    "action_rate_l2": 5.6772589683532715,
+    "undesired_contacts": 2.788264751434326,
+    "contact_forces": 4348.64892578125,
+    "track_lin_vel_xy_exp": 0.9995304942131042,
+    "track_ang_vel_z_exp": 1.0,
+    "feet_contact_without_cmd": 2.0,
+    "upward": 3.9999990463256836
+  },
+  "elapsed_seconds": 13.076348750008037,
+  "process_peak_rss_mib": 899.140625,
+  "training_started": false
+}

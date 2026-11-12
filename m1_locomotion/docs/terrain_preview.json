@@ -1,0 +1,175 @@
+{
+  "isaaclab_commit": "37ddf626871758333d6ed89cf64ad702aef127d0",
+  "difficulty": 1.0,
+  "seed": 42,
+  "sources_sha256": {
+    "source/isaaclab/isaaclab/terrains/trimesh/utils.py": "5fe3a0cc6d103ecaaf27b7a8875513b1912ce26e63ef6df4f5ffb38808872b36",
+    "source/isaaclab/isaaclab/terrains/height_field/utils.py": "a8820498ecb5ba6535a27bf3d8c5baf9069d2314d8e7fd9d950f60912e301725",
+    "source/isaaclab/isaaclab/terrains/trimesh/mesh_terrains.py": "50c1bbc1b319c71cb9a3305f4c52211be9e8c8db9859949e9784806fc26806c3",
+    "source/isaaclab/isaaclab/terrains/height_field/hf_terrains.py": "830971981a5920d3feed55512d6f2bd820396a16af3476a593d26b97daaaeed1"
+  },
+  "terrain_config_sha256": "b519724e14b7913d6d1959d26f3126a69bf2aa2bb99d10704fd3424c23cf5e86",
+  "tiles": {
+    "flat": {
+      "vertices": 4,
+      "triangles": 2,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        0.0
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": null,
+        "border_width": 0.0,
+        "inverted": false,
+        "proportion": 0.2
+      }
+    },
+    "slope_up": {
+      "vertices": 6561,
+      "triangles": 12800,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        -0.7000000000000001
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": null,
+        "border_width": 0.25,
+        "inverted": true,
+        "proportion": 0.1,
+        "slope_range": [
+          0.0,
+          0.35
+        ],
+        "platform_width": 2.0
+      }
+    },
+    "slope_down": {
+      "vertices": 6561,
+      "triangles": 12800,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        0.7000000000000001
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": null,
+        "border_width": 0.25,
+        "inverted": false,
+        "proportion": 0.1,
+        "slope_range": [
+          0.0,
+          0.35
+        ],
+        "platform_width": 2.0
+      }
+    },
+    "rough": {
+      "vertices": 6561,
+      "triangles": 12800,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        0.04
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": 0.1,
+        "border_width": 0.25,
+        "inverted": false,
+        "proportion": 0.2,
+        "noise_range": [
+          0.005,
+          0.04
+        ],
+        "noise_step": 0.005
+      }
+    },
+    "stairs_up": {
+      "vertices": 264,
+      "triangles": 396,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        -1.28
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": null,
+        "border_width": 1.0,
+        "inverted": true,
+        "proportion": 0.2,
+        "step_height_range": [
+          0.03,
+          0.16
+        ],
+        "step_width": 0.3,
+        "platform_width": 2.0,
+        "holes": false
+      }
+    },
+    "stairs_down": {
+      "vertices": 264,
+      "triangles": 396,
+      "spawn_origin_before_recentering_m": [
+        4.0,
+        4.0,
+        1.28
+      ],
+      "parameters": {
+        "size": [
+          8.0,
+          8.0
+        ],
+        "horizontal_scale": 0.1,
+        "vertical_scale": 0.005,
+        "slope_threshold": 0.75,
+        "downsampled_scale": null,
+        "border_width": 1.0,
+        "inverted": false,
+        "proportion": 0.2,
+        "step_height_range": [
+          0.03,
+          0.16
+        ],
+        "step_width": 0.3,
+        "platform_width": 2.0,
+        "holes": false
+      }
+    }
+  }
+}

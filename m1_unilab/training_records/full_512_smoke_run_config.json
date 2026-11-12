@@ -1,0 +1,1128 @@
+{
+  "run": {
+    "algo": "ppo",
+    "task": "M1MixedFull",
+    "sim_backend": "mujoco",
+    "device": "mps",
+    "configured_device": "mps",
+    "collector_device": null,
+    "resolved_devices": {
+      "learner": {
+        "configured": "mps",
+        "resolved": "mps"
+      },
+      "collector_tensor": {
+        "configured": "cpu",
+        "resolved": "cpu"
+      }
+    },
+    "log_dir": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1MixedFull/2026-11-10_22-17-56_mujoco",
+    "start_time_utc": "2026-11-10T14:17:56.757593+00:00",
+    "hostname": "amiaodeMacBook-Air-795.local",
+    "user": "amiao",
+    "git": {
+      "commit": null,
+      "branch": null,
+      "dirty": false
+    },
+    "hardware": {
+      "platform": "macOS-26.3.2-arm64-arm-64bit",
+      "chip": "Apple M5",
+      "cpu_total_cores": "10",
+      "cpu_performance_cores": "unknown",
+      "cpu_efficiency_cores": "unknown",
+      "gpu_cores": "8",
+      "memory": "16 GB",
+      "cpu_core_type_1": "Super",
+      "cpu_core_count_1": "4",
+      "cpu_core_type_2": "Efficiency",
+      "cpu_core_count_2": "6"
+    },
+    "wandb": {
+      "project": "unilab",
+      "entity": null,
+      "name": "ppo__M1MixedFull__2026-11-10_22-17-56_mujoco",
+      "group": "M1MixedFull",
+      "job_type": "ppo",
+      "tags": [
+        "ppo",
+        "M1MixedFull",
+        "mujoco",
+        "user-amiao"
+      ],
+      "notes": null,
+      "mode": null
+    },
+    "configured_seed": 1,
+    "configured_seed_source": "algo.seed",
+    "effective_seed": 1,
+    "tf32_matmul": {
+      "requested": "ieee",
+      "enabled": false,
+      "reason": "configured_ieee",
+      "applied": true
+    }
+  },
+  "config": {
+    "algo": {
+      "algo": "ppo",
+      "algo_log_name": "rsl_rl_ppo",
+      "seed": 1,
+      "num_envs": 512,
+      "num_steps_per_env": 24,
+      "max_iterations": 64,
+      "save_interval": 100,
+      "obs_groups": {
+        "actor": [
+          "actor"
+        ],
+        "critic": [
+          "critic"
+        ]
+      },
+      "experiment_name": "m1_b2w_full",
+      "run_name": "validation_512_1ms",
+      "resume": false,
+      "load_run": "-1",
+      "checkpoint": -1,
+      "resume_path": null,
+      "actor": {
+        "class_name": "rsl_rl.models.MLPModel",
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ],
+        "activation": "elu",
+        "obs_normalization": false,
+        "distribution_cfg": {
+          "class_name": "rsl_rl.modules.distribution.GaussianDistribution",
+          "init_std": 1.0,
+          "std_type": "scalar"
+        }
+      },
+      "critic": {
+        "class_name": "rsl_rl.models.MLPModel",
+        "hidden_dims": [
+          512,
+          256,
+          128
+        ],
+        "activation": "elu",
+        "obs_normalization": false
+      },
+      "algorithm": {
+        "class_name": "rsl_rl.algorithms:PPO",
+        "value_loss_coef": 1.0,
+        "use_clipped_value_loss": true,
+        "clip_param": 0.2,
+        "entropy_coef": 0.01,
+        "num_learning_epochs": 5,
+        "num_mini_batches": 4,
+        "learning_rate": 0.001,
+        "schedule": "adaptive",
+        "gamma": 0.99,
+        "lam": 0.95,
+        "desired_kl": 0.01,
+        "max_grad_norm": 1.0
+      }
+    },
+    "training": {
+      "task_name": "M1MixedFull",
+      "dp_collector_cpu_ids": null,
+      "device": "mps",
+      "logger": "tensorboard",
+      "log_interval": 5,
+      "wandb_project": "unilab",
+      "wandb_entity": null,
+      "wandb_group": null,
+      "wandb_job_type": null,
+      "wandb_name": null,
+      "wandb_tags": [],
+      "wandb_notes": null,
+      "wandb_mode": null,
+      "sim_backend": "mujoco",
+      "collector_tensor_device": "cpu",
+      "nan_guard": {
+        "enabled": true,
+        "buffer_size": 100,
+        "max_envs_to_dump": 5,
+        "output_dir": null,
+        "defer_validation": false,
+        "check_interval": 1,
+        "capture_interval": 32
+      },
+      "defer_finite_validation": false,
+      "finite_validation_interval": 32,
+      "play_only": false,
+      "no_play": true,
+      "tf32_matmul": "ieee",
+      "sim2sim_strict": true,
+      "play_render_mode": "auto",
+      "play_env_num": 16,
+      "render_spacing": 1.0,
+      "play_steps": 200,
+      "cam_distance": 6.0,
+      "cam_elevation": -20.0,
+      "cam_azimuth": 90.0,
+      "cam_lookat": null,
+      "cam_tracking": false,
+      "cam_tracking_env_idx": 0,
+      "cam_tracking_extra_envs": 2,
+      "log_root": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs",
+      "num_timesteps": null,
+      "log_dir": null
+    },
+    "interactive": {
+      "action_mode": "zero",
+      "policy_obs_mode": "auto",
+      "sim2sim": true,
+      "show_target_bodies": false,
+      "show_reward_debug": false,
+      "target_show_axes": false,
+      "target_body_names": "",
+      "target_max_bodies": 0,
+      "target_marker_radius": 0.02,
+      "target_axis_length": 0.08,
+      "target_marker_alpha": 0.75,
+      "reward_debug_show_velocity": false,
+      "reward_debug_lin_vel_scale": 0.08,
+      "reward_debug_ang_vel_scale": 0.05,
+      "reward_debug_show_connectors": false,
+      "reward_debug_show_global_anchor": false,
+      "camera_follow_body": true,
+      "camera_focus_body_name": "",
+      "camera_height_offset": 0.15,
+      "camera_distance": null,
+      "camera_elevation": null,
+      "camera_azimuth": null,
+      "use_env_visual_model": true,
+      "speed": 1.0,
+      "start_paused": false,
+      "keyboard": false,
+      "keyboard_step_lin": 0.1,
+      "keyboard_step_ang": 0.2
+    },
+    "viser": {
+      "port": 8080,
+      "env_idx": 0,
+      "display_mode": "all",
+      "max_envs": 16
+    },
+    "env": {
+      "scene": {
+        "model_file": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/assets/scene_mixed_full.xml",
+        "default_keyframe_name": "home",
+        "entities": {
+          "robot": {
+            "root_body_name": "BASE_LINK",
+            "body_names": [
+              "BASE_LINK",
+              "FAR_ABAD_LINK",
+              "FAR_HIP_LINK",
+              "FAR_KNEE_LINK",
+              "FAR_FOOT_LINK",
+              "FBL_ABAD_LINK",
+              "FBL_HIP_LINK",
+              "FBL_KNEE_LINK",
+              "FBL_FOOT_LINK",
+              "RAR_ABAD_LINK",
+              "RAR_HIP_LINK",
+              "RAR_KNEE_LINK",
+              "RAR_FOOT_LINK",
+              "RBL_ABAD_LINK",
+              "RBL_HIP_LINK",
+              "RBL_KNEE_LINK",
+              "RBL_FOOT_LINK"
+            ],
+            "joint_names": [
+              "FAR_ABAD_JOINT",
+              "FAR_HIP_JOINT",
+              "FAR_KNEE_JOINT",
+              "FBL_ABAD_JOINT",
+              "FBL_HIP_JOINT",
+              "FBL_KNEE_JOINT",
+              "RAR_ABAD_JOINT",
+              "RAR_HIP_JOINT",
+              "RAR_KNEE_JOINT",
+              "RBL_ABAD_JOINT",
+              "RBL_HIP_JOINT",
+              "RBL_KNEE_JOINT",
+              "FAR_FOOT_JOINT",
+              "FBL_FOOT_JOINT",
+              "RAR_FOOT_JOINT",
+              "RBL_FOOT_JOINT"
+            ],
+            "actuator_names": [
+              "FAR_ABAD_JOINT_act",
+              "FAR_HIP_JOINT_act",
+              "FAR_KNEE_JOINT_act",
+              "FBL_ABAD_JOINT_act",
+              "FBL_HIP_JOINT_act",
+              "FBL_KNEE_JOINT_act",
+              "RAR_ABAD_JOINT_act",
+              "RAR_HIP_JOINT_act",
+              "RAR_KNEE_JOINT_act",
+              "RBL_ABAD_JOINT_act",
+              "RBL_HIP_JOINT_act",
+              "RBL_KNEE_JOINT_act",
+              "FAR_FOOT_JOINT_act",
+              "FBL_FOOT_JOINT_act",
+              "RAR_FOOT_JOINT_act",
+              "RBL_FOOT_JOINT_act"
+            ],
+            "geom_names": [
+              "BASE_LINK_collision_0",
+              "BASE_LINK_collision_1",
+              "BASE_LINK_collision_2",
+              "BASE_LINK_collision_3",
+              "BASE_LINK_collision_4",
+              "BASE_LINK_collision_5",
+              "BASE_LINK_collision_6",
+              "BASE_LINK_collision_7",
+              "BASE_LINK_collision_8",
+              "BASE_LINK_collision_9",
+              "BASE_LINK_collision_10",
+              "FAR_ABAD_LINK_collision_0",
+              "FAR_HIP_LINK_collision_0",
+              "FAR_HIP_LINK_collision_1",
+              "FAR_HIP_LINK_collision_2",
+              "FAR_KNEE_LINK_collision_0",
+              "FAR_KNEE_LINK_collision_1",
+              "FAR_KNEE_LINK_collision_2",
+              "FAR_KNEE_LINK_collision_3",
+              "FAR_KNEE_LINK_collision_4",
+              "FAR_KNEE_LINK_collision_5",
+              "FAR_FOOT_LINK_collision_0",
+              "FBL_ABAD_LINK_collision_0",
+              "FBL_HIP_LINK_collision_0",
+              "FBL_HIP_LINK_collision_1",
+              "FBL_HIP_LINK_collision_2",
+              "FBL_KNEE_LINK_collision_0",
+              "FBL_KNEE_LINK_collision_1",
+              "FBL_KNEE_LINK_collision_2",
+              "FBL_KNEE_LINK_collision_3",
+              "FBL_KNEE_LINK_collision_4",
+              "FBL_KNEE_LINK_collision_5",
+              "FBL_FOOT_LINK_collision_0",
+              "RAR_ABAD_LINK_collision_0",
+              "RAR_HIP_LINK_collision_0",
+              "RAR_HIP_LINK_collision_1",
+              "RAR_HIP_LINK_collision_2",
+              "RAR_KNEE_LINK_collision_0",
+              "RAR_KNEE_LINK_collision_1",
+              "RAR_KNEE_LINK_collision_2",
+              "RAR_KNEE_LINK_collision_3",
+              "RAR_KNEE_LINK_collision_4",
+              "RAR_KNEE_LINK_collision_5",
+              "RAR_FOOT_LINK_collision_0",
+              "RBL_ABAD_LINK_collision_0",
+              "RBL_HIP_LINK_collision_0",
+              "RBL_HIP_LINK_collision_1",
+              "RBL_HIP_LINK_collision_2",
+              "RBL_KNEE_LINK_collision_0",
+              "RBL_KNEE_LINK_collision_1",
+              "RBL_KNEE_LINK_collision_2",
+              "RBL_KNEE_LINK_collision_3",
+              "RBL_KNEE_LINK_collision_4",
+              "RBL_KNEE_LINK_collision_5",
+              "RBL_FOOT_LINK_collision_0"
+            ]
+          }
+        },
+        "fragment_files": [
+          "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/assets/solver_full.xml"
+        ],
+        "terrain": {
+          "_target_": "unisim.scene.TerrainSceneCfg",
+          "generator": {
+            "_target_": "unilab.terrains.TerrainGeneratorCfg",
+            "seed": 17,
+            "size": [
+              8.0,
+              8.0
+            ],
+            "curriculum": true,
+            "num_rows": 5,
+            "horizontal_scale": 0.05,
+            "vertical_scale": 0.005,
+            "border_width": 4.0,
+            "difficulty_range": [
+              0.0,
+              1.0
+            ],
+            "sub_terrains": {
+              "flat": {
+                "_target_": "unilab.terrains.HfFlatTerrainCfg",
+                "proportion": 0.2
+              },
+              "uphill": {
+                "_target_": "unilab.terrains.HfPyramidSlopedTerrainCfg",
+                "proportion": 0.1,
+                "slope_range": [
+                  0.0,
+                  0.35
+                ],
+                "platform_width": 2.0,
+                "inverted": true
+              },
+              "downhill": {
+                "_target_": "unilab.terrains.HfPyramidSlopedTerrainCfg",
+                "proportion": 0.1,
+                "slope_range": [
+                  0.0,
+                  0.35
+                ],
+                "platform_width": 2.0,
+                "inverted": false
+              },
+              "rough": {
+                "_target_": "unilab.terrains.HfRandomUniformTerrainCfg",
+                "proportion": 0.2,
+                "noise_range": [
+                  -0.04,
+                  0.04
+                ],
+                "noise_step": 0.005,
+                "downsampled_scale": 0.1
+              },
+              "stairs_up": {
+                "_target_": "unilab.terrains.HfInvertedPyramidStairsTerrainCfg",
+                "proportion": 0.2,
+                "step_height_range": [
+                  0.03,
+                  0.16
+                ],
+                "step_width": 0.3,
+                "platform_width": 2.0
+              },
+              "stairs_down": {
+                "_target_": "unilab.terrains.HfPyramidStairsTerrainCfg",
+                "proportion": 0.2,
+                "step_height_range": [
+                  0.03,
+                  0.16
+                ],
+                "step_width": 0.3,
+                "platform_width": 2.0
+              }
+            }
+          }
+        }
+      },
+      "sim_dt": 0.001,
+      "ctrl_dt": 0.02,
+      "max_episode_seconds": 20.0,
+      "seed": 1,
+      "observations": {
+        "policy": {
+          "enable_corruption": true,
+          "terms": {
+            "base_ang_vel": {
+              "func": "m1_unilab.full_mdp.RootKinematics",
+              "params": {
+                "kind": "ang_vel"
+              },
+              "scale": 0.25,
+              "clip": [
+                -100,
+                100
+              ],
+              "noise": {
+                "_target_": "unilab.managers.UniformNoiseCfg",
+                "n_min": -0.2,
+                "n_max": 0.2
+              }
+            },
+            "projected_gravity": {
+              "func": "m1_unilab.full_mdp.RootKinematics",
+              "params": {
+                "kind": "gravity"
+              },
+              "clip": [
+                -100,
+                100
+              ],
+              "noise": {
+                "_target_": "unilab.managers.UniformNoiseCfg",
+                "n_min": -0.05,
+                "n_max": 0.05
+              }
+            },
+            "command": {
+              "func": "unilab.envs.mdp.generated_commands",
+              "params": {
+                "command_name": "twist"
+              },
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "joint_pos": {
+              "func": "m1_unilab.full_mdp.joint_pos_without_wheels",
+              "clip": [
+                -100,
+                100
+              ],
+              "noise": {
+                "_target_": "unilab.managers.UniformNoiseCfg",
+                "n_min": -0.01,
+                "n_max": 0.01
+              }
+            },
+            "joint_vel": {
+              "func": "unilab.envs.mdp.joint_vel_rel",
+              "scale": 0.05,
+              "clip": [
+                -100,
+                100
+              ],
+              "noise": {
+                "_target_": "unilab.managers.UniformNoiseCfg",
+                "n_min": -1.5,
+                "n_max": 1.5
+              }
+            },
+            "previous_action": {
+              "func": "unilab.envs.mdp.last_action",
+              "clip": [
+                -100,
+                100
+              ]
+            }
+          }
+        },
+        "critic": {
+          "enable_corruption": false,
+          "terms": {
+            "base_lin_vel": {
+              "func": "m1_unilab.full_mdp.RootKinematics",
+              "params": {
+                "kind": "lin_vel"
+              },
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "base_ang_vel": {
+              "func": "m1_unilab.full_mdp.RootKinematics",
+              "params": {
+                "kind": "ang_vel"
+              },
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "projected_gravity": {
+              "func": "m1_unilab.full_mdp.RootKinematics",
+              "params": {
+                "kind": "gravity"
+              },
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "command": {
+              "func": "unilab.envs.mdp.generated_commands",
+              "params": {
+                "command_name": "twist"
+              },
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "joint_pos": {
+              "func": "m1_unilab.full_mdp.joint_pos_without_wheels",
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "joint_vel": {
+              "func": "unilab.envs.mdp.joint_vel_rel",
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "previous_action": {
+              "func": "unilab.envs.mdp.last_action",
+              "clip": [
+                -100,
+                100
+              ]
+            },
+            "height_scan": {
+              "func": "m1_unilab.mdp.HeightScan",
+              "clip": [
+                -1,
+                1
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "drive": {
+          "_target_": "m1_unilab.full_drive.FullDriveCfg",
+          "entity_name": "robot",
+          "delay_min_steps": 0,
+          "delay_max_steps": 20,
+          "gain_scale_range": [
+            0.5,
+            2.0
+          ],
+          "force_range": [
+            -30.0,
+            30.0
+          ],
+          "torque_range": [
+            -10.0,
+            10.0
+          ],
+          "leg_abduction_scale": 0.125,
+          "leg_flexion_scale": 0.25,
+          "wheel_scale": 5.0,
+          "target_clip": 100.0
+        }
+      },
+      "commands": {
+        "twist": {
+          "_target_": "m1_unilab.full_mdp.ThresholdVelocityCommandCfg",
+          "entity_name": "robot",
+          "resampling_time_range": [
+            10.0,
+            10.0
+          ],
+          "heading_command": true,
+          "heading_control_stiffness": 0.5,
+          "rel_heading_envs": 1.0,
+          "rel_standing_envs": 0.02,
+          "ranges": {
+            "lin_vel_x": [
+              -1.0,
+              1.0
+            ],
+            "lin_vel_y": [
+              -1.0,
+              1.0
+            ],
+            "ang_vel_z": [
+              -1.0,
+              1.0
+            ],
+            "heading": [
+              -3.141592653589793,
+              3.141592653589793
+            ]
+          }
+        }
+      },
+      "events": {
+        "materials": {
+          "func": "m1_unilab.full_events.MaterialBuckets",
+          "mode": "startup",
+          "params": {
+            "asset_cfg": {
+              "_target_": "unilab.managers.scene_entity_config.SceneEntityCfg",
+              "name": "robot"
+            },
+            "num_buckets": 64,
+            "friction_range": [
+              0.3,
+              1.0
+            ],
+            "restitution_range": [
+              0.0,
+              0.5
+            ],
+            "time_constant": 0.02
+          }
+        },
+        "mass_inertia": {
+          "func": "m1_unilab.full_events.BodyMassInertia",
+          "mode": "startup",
+          "params": {
+            "asset_cfg": {
+              "_target_": "unilab.managers.scene_entity_config.SceneEntityCfg",
+              "name": "robot"
+            },
+            "base_body_name": "BASE_LINK",
+            "base_mass_range": [
+              -1.0,
+              3.0
+            ],
+            "other_mass_scale_range": [
+              0.7,
+              1.3
+            ]
+          }
+        },
+        "com": {
+          "func": "unilab.envs.mdp.randomize_rigid_body_com",
+          "mode": "startup",
+          "params": {
+            "asset_cfg": {
+              "_target_": "unilab.managers.scene_entity_config.SceneEntityCfg",
+              "name": "robot",
+              "body_names": [
+                "BASE_LINK"
+              ]
+            },
+            "com_range": {
+              "x": [
+                -0.05,
+                0.05
+              ],
+              "y": [
+                -0.05,
+                0.05
+              ],
+              "z": [
+                -0.05,
+                0.05
+              ]
+            }
+          }
+        },
+        "default": {
+          "func": "unilab.envs.mdp.reset_scene_to_default",
+          "mode": "reset"
+        },
+        "root": {
+          "func": "unilab.envs.mdp.reset_root_state_uniform",
+          "mode": "reset",
+          "params": {
+            "pose_range": {
+              "x": [
+                -0.5,
+                0.5
+              ],
+              "y": [
+                -0.5,
+                0.5
+              ],
+              "z": [
+                0.0,
+                0.2
+              ],
+              "roll": [
+                -3.14,
+                3.14
+              ],
+              "pitch": [
+                -3.14,
+                3.14
+              ],
+              "yaw": [
+                -3.14,
+                3.14
+              ]
+            },
+            "velocity_range": {
+              "x": [
+                -0.5,
+                0.5
+              ],
+              "y": [
+                -0.5,
+                0.5
+              ],
+              "z": [
+                -0.5,
+                0.5
+              ],
+              "roll": [
+                -0.5,
+                0.5
+              ],
+              "pitch": [
+                -0.5,
+                0.5
+              ],
+              "yaw": [
+                -0.5,
+                0.5
+              ]
+            }
+          }
+        },
+        "drive": {
+          "func": "m1_unilab.full_events.RandomizeDrive",
+          "mode": "reset"
+        },
+        "push": {
+          "func": "unilab.envs.mdp.push_by_setting_velocity",
+          "mode": "interval",
+          "interval_range_s": [
+            10.0,
+            15.0
+          ],
+          "params": {
+            "velocity_range": {
+              "x": [
+                -0.5,
+                0.5
+              ],
+              "y": [
+                -0.5,
+                0.5
+              ]
+            }
+          }
+        }
+      },
+      "terminations": {
+        "time_out": {
+          "func": "unilab.envs.mdp.time_out",
+          "time_out": true
+        },
+        "terrain_bounds": {
+          "func": "m1_unilab.full_mdp.TerrainBounds",
+          "time_out": true
+        }
+      },
+      "policy_observation_group": "policy",
+      "critic_observation_group": "critic",
+      "curriculum": {
+        "terrain": {
+          "func": "m1_unilab.full_mdp.TerrainLevelsDistanceFull"
+        }
+      }
+    },
+    "reward": {
+      "lin_vel_z_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -2.0,
+        "params": {
+          "kind": "lin_vel_z_l2"
+        }
+      },
+      "ang_vel_xy_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -0.05,
+        "params": {
+          "kind": "ang_vel_xy_l2"
+        }
+      },
+      "joint_torques_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -1e-05,
+        "params": {
+          "kind": "joint_torques_l2"
+        }
+      },
+      "joint_acc_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -1e-07,
+        "params": {
+          "kind": "joint_acc_l2"
+        }
+      },
+      "joint_acc_wheel_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -2.5e-10,
+        "params": {
+          "kind": "joint_acc_wheel_l2"
+        }
+      },
+      "joint_pos_limits": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -5.0,
+        "params": {
+          "kind": "joint_pos_limits"
+        }
+      },
+      "joint_power": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -1e-05,
+        "params": {
+          "kind": "joint_power"
+        }
+      },
+      "stand_still": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -2.0,
+        "params": {
+          "kind": "stand_still"
+        }
+      },
+      "joint_pos_penalty": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -1.0,
+        "params": {
+          "kind": "joint_pos_penalty"
+        }
+      },
+      "joint_mirror": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -0.05,
+        "params": {
+          "kind": "joint_mirror"
+        }
+      },
+      "action_rate_l2": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -0.01,
+        "params": {
+          "kind": "action_rate_l2"
+        }
+      },
+      "undesired_contacts": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -1.0,
+        "params": {
+          "kind": "undesired_contacts"
+        }
+      },
+      "contact_forces": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": -0.00015,
+        "params": {
+          "kind": "contact_forces"
+        }
+      },
+      "track_lin_vel_xy_exp": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": 3.0,
+        "params": {
+          "kind": "track_lin_vel_xy_exp"
+        }
+      },
+      "track_ang_vel_z_exp": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": 1.5,
+        "params": {
+          "kind": "track_ang_vel_z_exp"
+        }
+      },
+      "feet_contact_without_cmd": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": 0.1,
+        "params": {
+          "kind": "feet_contact_without_cmd"
+        }
+      },
+      "upward": {
+        "func": "m1_unilab.full_rewards.B2WReward",
+        "weight": 3.0,
+        "params": {
+          "kind": "upward"
+        }
+      }
+    },
+    "play_profile": {
+      "enabled": false,
+      "env": {
+        "render_spacing": 2.0
+      }
+    }
+  },
+  "contract_snapshot": {
+    "algo.obs_groups": {
+      "actor": [
+        "actor"
+      ],
+      "critic": [
+        "critic"
+      ]
+    },
+    "env.observations": {
+      "policy": {
+        "enable_corruption": true,
+        "terms": {
+          "base_ang_vel": {
+            "func": "m1_unilab.full_mdp.RootKinematics",
+            "params": {
+              "kind": "ang_vel"
+            },
+            "scale": 0.25,
+            "clip": [
+              -100,
+              100
+            ],
+            "noise": {
+              "_target_": "unilab.managers.UniformNoiseCfg",
+              "n_min": -0.2,
+              "n_max": 0.2
+            }
+          },
+          "projected_gravity": {
+            "func": "m1_unilab.full_mdp.RootKinematics",
+            "params": {
+              "kind": "gravity"
+            },
+            "clip": [
+              -100,
+              100
+            ],
+            "noise": {
+              "_target_": "unilab.managers.UniformNoiseCfg",
+              "n_min": -0.05,
+              "n_max": 0.05
+            }
+          },
+          "command": {
+            "func": "unilab.envs.mdp.generated_commands",
+            "params": {
+              "command_name": "twist"
+            },
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "joint_pos": {
+            "func": "m1_unilab.full_mdp.joint_pos_without_wheels",
+            "clip": [
+              -100,
+              100
+            ],
+            "noise": {
+              "_target_": "unilab.managers.UniformNoiseCfg",
+              "n_min": -0.01,
+              "n_max": 0.01
+            }
+          },
+          "joint_vel": {
+            "func": "unilab.envs.mdp.joint_vel_rel",
+            "scale": 0.05,
+            "clip": [
+              -100,
+              100
+            ],
+            "noise": {
+              "_target_": "unilab.managers.UniformNoiseCfg",
+              "n_min": -1.5,
+              "n_max": 1.5
+            }
+          },
+          "previous_action": {
+            "func": "unilab.envs.mdp.last_action",
+            "clip": [
+              -100,
+              100
+            ]
+          }
+        }
+      },
+      "critic": {
+        "enable_corruption": false,
+        "terms": {
+          "base_lin_vel": {
+            "func": "m1_unilab.full_mdp.RootKinematics",
+            "params": {
+              "kind": "lin_vel"
+            },
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "base_ang_vel": {
+            "func": "m1_unilab.full_mdp.RootKinematics",
+            "params": {
+              "kind": "ang_vel"
+            },
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "projected_gravity": {
+            "func": "m1_unilab.full_mdp.RootKinematics",
+            "params": {
+              "kind": "gravity"
+            },
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "command": {
+            "func": "unilab.envs.mdp.generated_commands",
+            "params": {
+              "command_name": "twist"
+            },
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "joint_pos": {
+            "func": "m1_unilab.full_mdp.joint_pos_without_wheels",
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "joint_vel": {
+            "func": "unilab.envs.mdp.joint_vel_rel",
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "previous_action": {
+            "func": "unilab.envs.mdp.last_action",
+            "clip": [
+              -100,
+              100
+            ]
+          },
+          "height_scan": {
+            "func": "m1_unilab.mdp.HeightScan",
+            "clip": [
+              -1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "env.actions": {
+      "drive": {
+        "_target_": "m1_unilab.full_drive.FullDriveCfg",
+        "entity_name": "robot",
+        "delay_min_steps": 0,
+        "delay_max_steps": 20,
+        "gain_scale_range": [
+          0.5,
+          2.0
+        ],
+        "force_range": [
+          -30.0,
+          30.0
+        ],
+        "torque_range": [
+          -10.0,
+          10.0
+        ],
+        "leg_abduction_scale": 0.125,
+        "leg_flexion_scale": 0.25,
+        "wheel_scale": 5.0,
+        "target_clip": 100.0
+      }
+    },
+    "env.policy_observation_group": "policy",
+    "env.critic_observation_group": "critic",
+    "algo.actor.hidden_dims": [
+      512,
+      256,
+      128
+    ],
+    "algo.critic.hidden_dims": [
+      512,
+      256,
+      128
+    ],
+    "algo.actor.obs_normalization": false,
+    "algo.critic.obs_normalization": false,
+    "env.ctrl_dt": 0.02
+  }
+}

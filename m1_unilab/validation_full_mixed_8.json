@@ -1,0 +1,74 @@
+{
+  "profile": "b2w-full",
+  "backend": "native MuJoCo/mjbatch",
+  "terrain": "mixed",
+  "num_envs": 8,
+  "policy_steps": 100,
+  "physical_steps_per_environment": 2000,
+  "policy_dim": 57,
+  "critic_dim": 247,
+  "action_dim": 16,
+  "reward_terms": 17,
+  "startup_dr": {
+    "readback_api": "SimBackend.get_reset_term_default (live committed mjbatch fields)",
+    "robot_bodies": 17,
+    "robot_geoms": 55,
+    "material_buckets": 64,
+    "sliding_friction_min_max": [
+      0.36285775899887085,
+      0.9997896552085876
+    ],
+    "base_mass_offset_min_max_kg": [
+      -0.24903780822753774,
+      1.9591950714111341
+    ],
+    "other_body_mass_scale_min_max": [
+      0.7068994669268298,
+      1.2982553390040974
+    ],
+    "base_com_offset_max_abs_m": 0.04993088246459961,
+    "mass_inertia_ratio_verified": true,
+    "material_mapping": "MuJoCo single sliding friction U[0.3,1.0] replaces the unavailable independent PhysX static/dynamic pair; torsional=0.005, rolling=0.0001. Requested restitution e is mapped approximately to solref=[0.02,zeta], zeta=-ln(e)/sqrt(pi^2+ln(e)^2), with e=0 mapped to zeta=1. Actual restitution depends on timestep, solver, impedance and geometry."
+  },
+  "startup_unchanged_after_selected_and_full_reset": true,
+  "drive_resampled_on_reset_selected_rows_only": true,
+  "wheel_kp": 0,
+  "drive_delay_steps_min_max": [
+    0,
+    20
+  ],
+  "wrench_submissions_at_public_backend_boundary": 2000,
+  "wrench_verification_scope": "world-frame force+torque submitted before every native physical step; no private solver-buffer access",
+  "native_ctrl_matches_explicit_pd": true,
+  "contact_history_physical_steps": 3,
+  "sim_dt": 0.001,
+  "ctrl_dt": 0.02,
+  "integrator": "implicitfast",
+  "terminations": 0,
+  "truncations": 0,
+  "reward_mean": 0.09085439004004002,
+  "raw_reward_abs_max": {
+    "lin_vel_z_l2": 0.6637882590293884,
+    "ang_vel_xy_l2": 9.952573776245117,
+    "joint_torques_l2": 26967.908203125,
+    "joint_acc_l2": 3065948.5,
+    "joint_acc_wheel_l2": 6879541.0,
+    "joint_pos_limits": 0.0,
+    "joint_power": 2327.96826171875,
+    "stand_still": 0.0,
+    "joint_pos_penalty": 1.2504183053970337,
+    "joint_mirror": 0.765026330947876,
+    "action_rate_l2": 4.099612712860107,
+    "undesired_contacts": 1.0,
+    "contact_forces": 1328.31884765625,
+    "track_lin_vel_xy_exp": 0.8799893856048584,
+    "track_ang_vel_z_exp": 0.9971924424171448,
+    "feet_contact_without_cmd": 0.0,
+    "upward": 3.9999780654907227
+  },
+  "elapsed_seconds": 5.104637167009059,
+  "process_peak_rss_mib": 1005.28125,
+  "training_started": false,
+  "record_status": "historical_before_stability_fix",
+  "superseded_by": "stability_fix_validation.json"
+}

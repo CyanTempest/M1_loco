@@ -1,0 +1,64 @@
+{
+  "source": "https://github.com/unitreerobotics/unitree_rl_mjlab/blob/1425b15f73bd4095f0df53709d7c389c3eb9e790/src/assets/robots/unitree_a2/a2_constants.py",
+  "source_robot": "Unitree A2 (12-DOF legged), not A2W",
+  "scope": "Only kp and kd; M1 morphology, mass, inertia and motor limits are unchanged",
+  "units": {
+    "kp": "N*m/rad",
+    "kd": "N*m*s/rad"
+  },
+  "mapping": {
+    "M1_ABAD": "A2_hip",
+    "M1_HIP": "A2_thigh",
+    "M1_KNEE": "A2_calf"
+  },
+  "motors": {
+    "FAR_ABAD_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "FAR_HIP_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "FAR_KNEE_JOINT": {
+      "kp": 150.0,
+      "kd": 6.0
+    },
+    "FBL_ABAD_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "FBL_HIP_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "FBL_KNEE_JOINT": {
+      "kp": 150.0,
+      "kd": 6.0
+    },
+    "RAR_ABAD_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "RAR_HIP_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "RAR_KNEE_JOINT": {
+      "kp": 150.0,
+      "kd": 6.0
+    },
+    "RBL_ABAD_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "RBL_HIP_JOINT": {
+      "kp": 100.0,
+      "kd": 4.0
+    },
+    "RBL_KNEE_JOINT": {
+      "kp": 150.0,
+      "kd": 6.0
+    }
+  }
+}

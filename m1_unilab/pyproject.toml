@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m1-unilab"
+version = "0.1.0"
+description = "M1 wheeled locomotion tasks for UniLab on Apple Silicon"
+requires-python = ">=3.12,<3.14"
+dependencies = ["unilab[mujoco,unirl]==1.5.9", "m1-locomotion==0.1.0"]
+
+[project.entry-points."unilab.tasks"]
+m1 = "m1_unilab"
+
+[project.scripts]
+m1-train = "m1_unilab.train:main"
+m1-smoke = "m1_unilab.validate:main"
+
+[tool.setuptools.package-data]
+m1_unilab = ["*.yaml", "*.html"]
+
+[tool.setuptools.packages.find]
+include = ["m1_unilab*"]
+

@@ -1,0 +1,21 @@
+{
+  "checkpoint": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1Flat/2026-11-10_20-12-34_mujoco/model_999.pt",
+  "results": [
+    {
+      "terrain": "flat",
+      "level": 0,
+      "difficulty": null,
+      "episodes": 8,
+      "duration_s": 20.0,
+      "command_vx": 0.5,
+      "survival_until_goal_or_horizon_rate": 1.0,
+      "forward_progress_mean_m": 4.0037336349487305,
+      "vx_mean_m_s": 0.5248204140661983,
+      "vx_mae_m_s": 0.04260016561602242,
+      "minimum_center_clearance_m": 0.5304808020591736,
+      "progress_success_rate": 1.0,
+      "success_definition": "reach min(4m,70% commanded distance) without orientation termination; stop scoring each row at the goal",
+      "scope": "nominal simulation, one fixed command/seed; not hardware validation"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "terrain": "mixed",
+  "num_envs": 12,
+  "steps": 1100,
+  "policy_dim": 53,
+  "critic_dim": 243,
+  "action_dim": 16,
+  "wheel_kp": 0,
+  "wheel_kd": 1,
+  "mass_kg": 42.337999999999994,
+  "integrator": "implicitfast",
+  "sim_dt": 0.002,
+  "ctrl_dt": 0.02,
+  "zero_action_terminations": 0,
+  "reward_mean": 0.03885033516382629,
+  "elapsed_seconds": 4.596430208010133,
+  "terrain_types": [
+    "flat",
+    "uphill",
+    "downhill",
+    "rough",
+    "stairs_up",
+    "stairs_down"
+  ],
+  "terrain_rows": 5
+}

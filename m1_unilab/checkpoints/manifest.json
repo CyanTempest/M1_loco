@@ -1,0 +1,29 @@
+{
+  "unilab_commit": "f7f72afead492c4cbfcc64333bee39509c9a2204",
+  "checkpoints": {
+    "flat": {
+      "file": "checkpoints/flat.pt",
+      "sha256": "f91282e39c9b6e6567f2fe9827d0569b5f5e0d483dd11e757f5b8aa2059ba144",
+      "original_filename": "model_999.pt",
+      "original_run": "runs/M1Flat/2026-11-10_20-12-34_mujoco",
+      "resumed_from": null,
+      "additional_updates": 1000,
+      "additional_env_steps": 1536000,
+      "actor_dim": 53,
+      "critic_dim": 243,
+      "action_dim": 16
+    },
+    "mixed": {
+      "file": "checkpoints/mixed.pt",
+      "sha256": "df3d86457692c952c53401aab25f22fe07bf01aea8e1869dc3c134126f6dafbf",
+      "original_filename": "model_1998.pt",
+      "original_run": "runs/M1Mixed/2026-11-10_20-25-12_mujoco",
+      "resumed_from": "flat",
+      "additional_updates": 1000,
+      "additional_env_steps": 1536000,
+      "actor_dim": 53,
+      "critic_dim": 243,
+      "action_dim": 16
+    }
+  }
+}

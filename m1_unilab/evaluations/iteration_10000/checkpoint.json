@@ -1,0 +1,7 @@
+{
+  "source": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1MixedFull/2026-11-11_01-30-59_mujoco/model_10000.pt",
+  "iteration_label": 10000,
+  "sha256": "2b23c27efcbe0c5879137c7efa6b3306b90d0083c02f5e1b5319856429090246",
+  "saved_env_steps": 122916864,
+  "training_not_paused": true
+}

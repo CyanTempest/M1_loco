@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "scope": "bounded numerical-stability verification; not a converged locomotion policy",
+  "profile": "b2w-full",
+  "terrain": "mixed",
+  "learner_device": "Apple M5 MPS",
+  "physics_device": "CPU MuJoCo/mjbatch",
+  "physics_dt": 0.001,
+  "policy_dt": 0.02,
+  "integrator": "implicit",
+  "fixes": [
+    "full implicit integration for the coupled multibody system",
+    "solref=[0.02/zeta,zeta], preserving contact stiffness across restitution buckets",
+    "reset-only conservative collision-geometry terrain clearance of 0.005 m"
+  ],
+  "original_failure_reproduction": {
+    "scope": "same failure class from user checkpoint 100; original iteration 170 state was not captured",
+    "batch_zero_based": 11,
+    "environment_zero_based": 312,
+    "initial_maximum_penetration_m": 0.08424187980537812,
+    "physical_steps_to_float32_nonfinite": 97,
+    "native_vs_standalone_replay": "all 97 qpos/qvel frames match exactly after float32 publication",
+    "old_config_regression_failed": true,
+    "new_config_regression_passed": true
+  },
+  "tests": {
+    "passed": 48,
+    "ruff_changed_files": "passed",
+    "shell_syntax": "passed",
+    "log": "training_records/stability_fix_tests.log"
+  },
+  "native_validation": {
+    "file": "validation_full_mixed_512.json",
+    "num_envs": 512,
+    "policy_steps": 100,
+    "collision_free_reset_verified": true,
+    "maximum_sampled_reset_lift_m": 0.20680069238100196,
+    "reward_terms": 17
+  },
+  "reset_stress": {
+    "num_envs": 512,
+    "reset_batches": 100,
+    "individual_resets": 51200,
+    "policy_steps_per_batch": 10,
+    "failures": 0,
+    "scope": "frozen checkpoint 100; integrator and material fixes, before terrain-clearance addition",
+    "log": "training_records/stability_fix_reset_stress.log"
+  },
+  "fresh_ppo": {
+    "status": "passed",
+    "num_envs": 512,
+    "updates": 300,
+    "run_env_steps": 3686400,
+    "total_env_steps_including_checkpoint": 3686400,
+    "last_iteration_label": 299,
+    "training_wall_time_seconds": 1293.955796957016,
+    "host_process_peak_rss_mib": 1095.828125,
+    "mujoco_instability_warnings": 0,
+    "checkpoint": "runs/M1MixedFull/2026-11-10_23-00-19_mujoco/model_299.pt",
+    "checkpoint_sha256": "523cde73ad72dbaa0551347c19f9680cb23e1419ccfb8d754a70b8698e06fe34",
+    "log": "training_records/stability_fix_300.log",
+    "run_config": "training_records/stability_fix_300_run_config.json",
+    "run_summary": "training_records/stability_fix_300_run_summary.json"
+  },
+  "original_checkpoint_resume": {
+    "status": "passed",
+    "num_envs": 512,
+    "updates": 2,
+    "run_env_steps": 24576,
+    "total_env_steps_including_checkpoint": 1265664,
+    "last_iteration_label": 101,
+    "training_wall_time_seconds": 18.771748065948486,
+    "host_process_peak_rss_mib": 1308.703125,
+    "mujoco_instability_warnings": 0,
+    "checkpoint": "runs/M1MixedFull/2026-11-10_23-10-55_mujoco/model_101.pt",
+    "checkpoint_sha256": "4ece754d3c881a11a97554b1cf4974bea22554694d19c9809d38ae861d76222b",
+    "log": "training_records/stability_fix_resume.log",
+    "run_config": "training_records/stability_fix_resume_run_config.json",
+    "run_summary": "training_records/stability_fix_resume_run_summary.json"
+  },
+  "preserved_checkpoint": {
+    "source": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1MixedFull/2026-11-10_22-25-02_mujoco/model_100.pt",
+    "sha256": "3cc938fc3df5b377f9a7c530e6e2f69f658543ce837af470a12dbf0d5d0ac91a",
+    "iteration_label": 100,
+    "completed_updates": 101,
+    "saved_env_steps": 1241088,
+    "remaining_updates_to_30000": 29899,
+    "profile": "b2w-full",
+    "scope": "preserved user checkpoint before stability repair"
+  },
+  "long_training_started_by_repair": false,
+  "manual_resume_additional_updates": 29899,
+  "manual_resume_total_updates": 30000,
+  "estimated_30000_update_hours": 35.943216582139335,
+  "estimate_scope": "linear extrapolation from 300 updates; thermal throttling and background load affect duration",
+  "memory_scope": "host process RSS, not total Apple unified-memory or GPU allocation",
+  "physical_model": "M1 CAD nominal masses, inertias, geometry, joint axes/ranges and motor limits retained"
+}

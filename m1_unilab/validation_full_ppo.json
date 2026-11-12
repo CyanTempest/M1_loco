@@ -1,0 +1,30 @@
+{
+  "profile": "b2w-full",
+  "num_envs": 512,
+  "short_test_updates": 64,
+  "run_env_steps": 786432,
+  "physics_steps_per_env": 30720,
+  "learner_device": "mps",
+  "physics_device": "cpu",
+  "sim_dt": 0.001,
+  "policy_dt": 0.02,
+  "motor_delay_ms": [
+    0,
+    20
+  ],
+  "checkpoint_sha256": "cc3ced932aa79baab605d35753cfec6ab7e957687e0a0338d8653782accce32d",
+  "checkpoint_file": "runs/M1MixedFull/2026-11-10_22-17-56_mujoco/model_63.pt",
+  "checkpoint_scope": "short validation only; not a converged policy",
+  "training_wall_time_seconds": 202.35110592842102,
+  "host_process_max_rss_mib": 1256.0,
+  "memory_note": "host RSS is not total Apple unified-memory/GPU allocation",
+  "mujoco_instability_warnings": 0,
+  "unit_tests_passed": 40,
+  "checkpoint_resume_one_update_verified": true,
+  "planned_updates": 30000,
+  "long_training_started": false,
+  "planned_hours_from_short_test": 26.347800251096487,
+  "estimate_scope": "linear short-run extrapolation; thermal throttling and background load can change duration",
+  "record_status": "historical_before_stability_fix",
+  "superseded_by": "stability_fix_validation.json"
+}

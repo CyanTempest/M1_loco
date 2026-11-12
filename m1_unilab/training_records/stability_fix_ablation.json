@@ -1,0 +1,269 @@
+[
+  {
+    "case": "original",
+    "bad_step": 93,
+    "max_abs_qvel": 1350702.6876476468,
+    "max_abs_qacc": 1354442776.2894785,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "raise_15cm",
+    "bad_step": null,
+    "max_abs_qvel": 159.60681597594524,
+    "max_abs_qacc": 22883.06038467684,
+    "initial_contact_count": 9,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.01350874154559666,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.013301517257304676,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.012716541709402484,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.010486462360095436,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "no_contact",
+    "bad_step": null,
+    "max_abs_qvel": 187.66867863445387,
+    "max_abs_qacc": 22660.518146316568,
+    "initial_contact_count": 0,
+    "initial_deepest_contacts": []
+  },
+  {
+    "case": "implicit",
+    "bad_step": null,
+    "max_abs_qvel": 713.1782149492731,
+    "max_abs_qacc": 238141.3946951848,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "rk4",
+    "bad_step": null,
+    "max_abs_qvel": 653.2898786582803,
+    "max_abs_qacc": 229382.97128155775,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "critical_contact_damping",
+    "bad_step": null,
+    "max_abs_qvel": 165.12460635061913,
+    "max_abs_qacc": 18178.87607596301,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "no_control",
+    "bad_step": 64,
+    "max_abs_qvel": 9753348.705004213,
+    "max_abs_qacc": 9754541738.916994,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "no_wrench",
+    "bad_step": 97,
+    "max_abs_qvel": 63987569.02444568,
+    "max_abs_qacc": 64096125758.440704,
+    "initial_contact_count": 43,
+    "initial_deepest_contacts": [
+      {
+        "dist": -0.08424187980537812,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.08423027613381359,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.06837122804432598,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      },
+      {
+        "dist": -0.060642731546568296,
+        "geoms": [
+          "floor",
+          "FAR_FOOT_LINK_collision_0"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,152 @@
+env:
+  scene:
+    model_file: ""
+    default_keyframe_name: home
+    entities: {}
+  sim_dt: 0.002
+  ctrl_dt: 0.02
+  max_episode_seconds: 20.0
+  seed: 1
+  observations:
+    policy:
+      terms: &proprioception
+        base_ang_vel:
+          func: unilab.envs.mdp.builtin_sensor
+          scale: 0.25
+          params: {sensor_name: gyro}
+        projected_gravity:
+          func: unilab.envs.mdp.projected_gravity_from_sensor
+          params: {sensor_name: upvector}
+        command:
+          func: unilab.envs.mdp.generated_commands
+          params: {command_name: twist}
+        leg_pos:
+          func: unilab.envs.mdp.joint_pos_rel
+          params:
+            asset_cfg: &legs
+              _target_: unilab.managers.scene_entity_config.SceneEntityCfg
+              name: robot
+              joint_names: ["^(?!.*_FOOT_JOINT).*"]
+        joint_vel:
+          func: unilab.envs.mdp.joint_vel_rel
+          scale: 0.05
+        previous_action:
+          func: unilab.envs.mdp.last_action
+    critic:
+      terms:
+        <<: *proprioception
+        base_lin_vel:
+          func: unilab.envs.mdp.builtin_sensor
+          params: {sensor_name: local_linvel}
+        height_scan:
+          func: m1_unilab.mdp.HeightScan
+          scale: 5.0
+  actions:
+    legs:
+      _target_: unilab.envs.mdp.JointPositionActionCfg
+      entity_name: robot
+      actuator_names: ["^(?!.*_FOOT_JOINT).*"]
+      scale: {".*_ABAD_JOINT": 0.15, ".*_(HIP|KNEE)_JOINT": 0.35}
+      use_default_offset: true
+      clip: {}
+    wheels:
+      _target_: unilab.envs.mdp.JointVelocityActionCfg
+      entity_name: robot
+      actuator_names: [".*_FOOT_JOINT"]
+      scale: 5.0
+      use_default_offset: false
+      clip: {".*": [-15.0, 15.0]}
+  commands:
+    twist:
+      _target_: unilab.envs.mdp.UniformVelocityCommandCfg
+      entity_name: robot
+      resampling_time_range: [5.0, 10.0]
+      heading_command: false
+      rel_standing_envs: 0.1
+      ranges:
+        lin_vel_x: [-0.5, 1.0]
+        lin_vel_y: [-0.1, 0.1]
+        ang_vel_z: [-0.6, 0.6]
+  events:
+    default:
+      func: unilab.envs.mdp.reset_scene_to_default
+      mode: reset
+    root:
+      func: unilab.envs.mdp.reset_root_state_uniform
+      mode: reset
+      params:
+        pose_range:
+          x: [-0.1, 0.1]
+          y: [-0.1, 0.1]
+          roll: [-0.02, 0.02]
+          pitch: [-0.02, 0.02]
+          yaw: [-3.14, 3.14]
+        velocity_range: {}
+  terminations:
+    time_out:
+      func: unilab.envs.mdp.time_out
+      time_out: true
+    bad_orientation:
+      func: unilab.envs.mdp.bad_orientation
+      params: {limit_angle: 0.9}
+  policy_observation_group: policy
+  critic_observation_group: critic
+reward:
+  tracking_lin_vel:
+    func: unilab.tasks.locomotion.common.sensor_reward_terms.track_lin_vel
+    weight: 2.0
+    params: {tracking_sigma: 0.5, sensor_name: local_linvel, command_name: twist}
+  tracking_ang_vel:
+    func: unilab.tasks.locomotion.common.sensor_reward_terms.track_ang_vel
+    weight: 0.5
+    params: {tracking_sigma: 0.5, sensor_name: gyro, command_name: twist}
+  lin_vel_z:
+    func: unilab.tasks.locomotion.common.sensor_reward_terms.lin_vel_z
+    weight: -1.0
+    params: {sensor_name: local_linvel}
+  ang_vel_xy:
+    func: unilab.tasks.locomotion.common.sensor_reward_terms.ang_vel_xy
+    weight: -0.05
+    params: {sensor_name: gyro}
+  action_rate:
+    func: unilab.envs.mdp.action_rate_l2
+    weight: -0.01
+  leg_posture:
+    func: m1_unilab.mdp.leg_posture_l1
+    weight: -0.1
+    params: {asset_cfg: *legs}
+  alive:
+    func: unilab.envs.mdp.is_alive
+    weight: 0.2
+algo:
+  num_envs: 64
+  num_steps_per_env: 24
+  max_iterations: 200
+  save_interval: 25
+  experiment_name: m1_locomotion
+  obs_groups: {actor: [actor], critic: [critic]}
+  actor:
+    hidden_dims: [128, 128, 64]
+    obs_normalization: true
+    distribution_cfg: {init_std: 0.4}
+  critic:
+    hidden_dims: [128, 128, 64]
+    obs_normalization: true
+  algorithm:
+    learning_rate: 0.0003
+    entropy_coef: 0.003
+    num_learning_epochs: 4
+    num_mini_batches: 4
+training:
+  task_name: M1Flat
+  sim_backend: mujoco
+  device: mps
+  collector_tensor_device: cpu
+  no_play: true
+  defer_finite_validation: false
+  nan_guard:
+    defer_validation: false
+    check_interval: 1
+  logger: tensorboard
+  log_interval: 5
+

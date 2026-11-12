@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m1-locomotion"
+version = "0.1.0"
+description = "M1 wheeled-quadruped locomotion extension for robot_lab v2.3.2"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+check = ["numpy>=1.26", "pytest>=8", "mujoco>=3.3,<5"]
+
+[tool.setuptools]
+packages = ["m1_locomotion"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

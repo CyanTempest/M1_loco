@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "m1_cad": {
+    "source": "user-provided ZG_M1_A0_V1_0.rar / urdf/ZG_M1_A0_V1_0.urdf",
+    "mass_kg": 42.338,
+    "wheel_radius_m": 0.0975,
+    "leg_effort_limit_Nm": 180.0,
+    "leg_velocity_limit_rad_s": 16.75,
+    "wheel_effort_limit_Nm": 28.68,
+    "wheel_velocity_limit_rad_s": 110.0,
+    "status": "CAD nominal, not identified continuous motor limits"
+  },
+  "engineering_priors": {
+    "physics_dt_s": 0.001,
+    "policy_dt_s": 0.02,
+    "actuation_delay_physics_steps": [
+      0,
+      20
+    ],
+    "actuator_model": "Delayed ideal PD with torque clipping; no identified torque-speed curve",
+    "status": "provisional training choices; not A2W sysid and not approved hardware gains"
+  },
+  "gain_reference_scope": "A2 leg kp/kd retained as authorized fallback for unavailable A2W gains. Wheel kp=0, kd=1 and action scale=5 follow robot_lab B2W at user request. M1 mass, inertia, geometry and torque/velocity limits are preserved."
+}

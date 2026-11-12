@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "backend_diagnostics": {
+    "backend_type": "mujoco",
+    "available": false,
+    "unavailable_reason": "backend mujoco declares no tensor runtime diagnostics"
+  },
+  "tf32_matmul": {
+    "requested": "ieee",
+    "enabled": false,
+    "reason": "configured_ieee",
+    "applied": true
+  },
+  "completed_iterations": 999,
+  "total_env_steps": 1536000,
+  "run_env_steps": 1536000,
+  "world_size": 1,
+  "num_envs_per_rank": 64,
+  "global_num_envs": 64,
+  "samples_per_iteration": 1536,
+  "training_throughput_env_steps_per_sec": 7281.407557918311,
+  "final_mean_reward": 48.54083190917969,
+  "best_mean_reward": 50.706993103027344,
+  "mean_episode_length": 1000.0,
+  "last_checkpoint": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1Flat/2026-11-10_20-12-34_mujoco/model_999.pt",
+  "training_wall_time_sec": 214.50108885765076,
+  "algo": "ppo",
+  "task": "M1Flat",
+  "sim_backend": "mujoco",
+  "log_dir": "/Users/amiao/Documents/Codex/2026-11-10/1-m1-urdf-nx-ota-calibration/outputs/m1_unilab/runs/M1Flat/2026-11-10_20-12-34_mujoco",
+  "start_time_utc": "2026-11-10T12:12:34.153462+00:00",
+  "end_time_utc": "2026-11-10T12:16:09.514291+00:00",
+  "wall_time_sec": 215.36728800000856,
+  "wandb_run_url": null,
+  "configured_seed": 1,
+  "configured_seed_source": "algo.seed",
+  "effective_seed": 1
+}

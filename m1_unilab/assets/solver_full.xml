@@ -1,0 +1,1 @@
+<mujoco><option integrator="implicit"><flag autoreset="disable" nativeccd="disable"/></option></mujoco>

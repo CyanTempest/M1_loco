@@ -1,0 +1,16 @@
+{
+  "source_sha256": "f961f953314854f2bfcd21a05d0a8d869549fb468b0694982e68a6b02b07b311",
+  "source_mass_kg": 42.338,
+  "changes": [
+    "FOOT joints changed to continuous; effort/velocity retained",
+    "Relative mesh paths normalized",
+    "12 sensor-only BASE_LINK mesh collisions removed; 11 original base primitive colliders retained"
+  ],
+  "profiles": {
+    "m1_cad": {
+      "mass_kg": 42.338,
+      "mass_inertia_scale": 1.0,
+      "sha256": "b550affb366d732c86e69d1a264c6ec7f5a2cc2d15a6f481f64a133e6a7adcfb"
+    }
+  }
+}

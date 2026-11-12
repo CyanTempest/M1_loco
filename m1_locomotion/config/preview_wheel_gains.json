@@ -1,0 +1,26 @@
+{
+  "source": "Test-only velocity PD for simulation smoke check; not Unitree data or user-designed gains",
+  "control_mode": "velocity PD; kp must be zero in this training architecture",
+  "units": {
+    "kp": "N*m/rad",
+    "kd": "N*m*s/rad"
+  },
+  "motors": {
+    "FAR_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 0.5
+    },
+    "FBL_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 0.5
+    },
+    "RAR_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 0.5
+    },
+    "RBL_FOOT_JOINT": {
+      "kp": 0.0,
+      "kd": 0.5
+    }
+  }
+}
